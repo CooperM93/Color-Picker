@@ -29,7 +29,12 @@ class Palette extends React.Component {
         ));
         return(
             <div className="Palette">
-                <NavBar level={level} handleChange={this.changeFormat} changeLevel={this.changeLevel} />
+                <NavBar 
+                    level={level} 
+                    handleChange={this.changeFormat} 
+                    changeLevel={this.changeLevel} 
+                    showSlider={true}
+                />
                 <div className="Palette-colors">
                     {colorBoxes}
                 </div>
