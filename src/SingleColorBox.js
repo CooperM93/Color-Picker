@@ -2,6 +2,19 @@ import React, { Component } from 'react'
 import {CopyToClipboard} from "react-copy-to-clipboard";
 import './SingleColorBox.css';
 import chroma from 'chroma-js';
+import { withStyles } from '@material-ui/styles';
+
+const styles = {
+    lightText: {
+        color: props => 
+            chroma(props.background).luminance() >= 0.65 ? "black" : "white"
+    },
+    darkText: {
+        color: props => 
+            chroma(props.background).luminance() <= 0.09 ? "white" : "black"
+    
+    }
+}
 
 
 class SingleColorBox extends Component {
@@ -16,9 +29,8 @@ class SingleColorBox extends Component {
        }) 
     }
     render() {
-        const {name, background} = this.props;
+        const {name, background, classes} = this.props;
         const {copy} = this.state;
-        const isDark = chroma(background).luminance() <= 0.07;
         return (
             <CopyToClipboard text={background} onCopy={this.changeCopyState}>
                 <div style={{background}} className="SingleColorBox">
@@ -32,9 +44,9 @@ class SingleColorBox extends Component {
                     </div>
                     <div className="copy-container">
                         <div className="box-content">
-                            <span className={isDark && 'light-text'}>{name}</span>
+                            <span className={classes.darkText}>{name}</span>
                         </div>
-                        <button className="copy-button">Copy</button>
+                        <button className={`copy-button ${classes.lightText}`}>Copy</button>
                     </div>
                 </div>
             </CopyToClipboard>
@@ -42,4 +54,4 @@ class SingleColorBox extends Component {
     }
 }
 
-export default SingleColorBox
+export default withStyles(styles)(SingleColorBox);
