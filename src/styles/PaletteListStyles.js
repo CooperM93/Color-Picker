@@ -17,7 +17,13 @@ export default {
         display: "flex",
         width: "100%",
         justifyContent: "space-between",
+        alignItems: "center",
+        color: "white",
         "& h1": {
+            color: "white"
+        },
+        "& a": {
+            textDecoration: "none",
             color: "white"
         }
     },
