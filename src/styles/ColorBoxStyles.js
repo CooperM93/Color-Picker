@@ -36,8 +36,6 @@ export default {
         textAlign: "center",
         lineHeight: "30px",
         textTransform: "uppercase",
-        color: props => 
-            chroma(props.background).luminance() >= 0.65 ? "black" : "white",
         "&:hover": {
             background: "rgba(255, 255, 255, 0.5)",
             transition: "0.5s"
