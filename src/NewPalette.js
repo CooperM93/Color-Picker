@@ -133,6 +133,11 @@ class NewPalette extends React.Component {
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value })
     }
+    deleteColor(colorName){
+        this.setState({
+            colors: this.state.colors.filter(color => color.name !== colorName)
+        })
+    }
     render() {
         const { classes } = this.props;
         const { open } = this.state;
@@ -166,7 +171,7 @@ class NewPalette extends React.Component {
                         onChange={this.handleChange} 
                         name="newPaletteName"
                         validators={["required", "isPaletteNameUnique"]}
-                        errorMessages={["enter palette name", "this n ame is taken"]}
+                        errorMessages={["enter palette name", "this name is taken"]}
                     />
                     <Button variant="contained" color="secondary" type="submit">Save Palette</Button>
                 </ValidatorForm>
@@ -223,7 +228,11 @@ class NewPalette extends React.Component {
             >
                 <div className={classes.drawerHeader} />
                 {this.state.colors.map(color => (
-                    <DraggableColorBox color={color.color} name={color.name} />
+                    <DraggableColorBox 
+                        key={color.name}
+                        color={color.color} 
+                        name={color.name} 
+                        handleClick={() => this.deleteColor(color.name)} />
                 ))}
             </main>
             </div>
