@@ -25,6 +25,7 @@ const styles = theme => ({
       }),
       flexDirection: 'row',
       justifyContent: 'space-between',
+      alignItems: 'center',
       height: '64px'
     },
     appBarShift: {
@@ -39,16 +40,29 @@ const styles = theme => ({
       marginRight: theme.spacing(2),
     },
     navBtns: {
-
+        marginRight: '1rem',
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    button: {
+        minWidth: '100px',
+        margin: '0 0.5rem',
+        fontSize: '13px',
+    },
+    link: {
+        textDecoration: 'none'
     }
   });
 class NewPaletteNav extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            newPaletteName: ""
+            newPaletteName: "",
+            formShowing: false,
         }
         this.handleChange = this.handleChange.bind(this);
+        this.showForm = this.showForm.bind(this);
+        this.hideForm = this.hideForm.bind(this);
     }
     componentDidMount() {
         ValidatorForm.addValidationRule('isPaletteNameUnique', value => 
@@ -59,6 +73,12 @@ class NewPaletteNav extends React.Component {
     }
     handleChange(e) {
         this.setState({ [e.target.name]: e.target.value })
+    }
+    showForm() {
+        this.setState({ formShowing: true })
+    }
+    hideForm() {
+        this.setState({ formShowing: false })
     }
     render() {
         const { classes, open, palettes, onSubmit } = this.props;
@@ -87,10 +107,17 @@ class NewPaletteNav extends React.Component {
                         </Typography>
                     </Toolbar>
                     <div className={classes.navBtns}>
-                        <PaletteInfoForm palettes={palettes} onSubmit={onSubmit}/>
-                        <Link to="/"><Button variant='contained' color='secondary'>Go Back</Button></Link>
+                        <Link to="/" className={classes.link}>
+                            <Button variant='outlined' color='secondary' className={classes.button}>
+                                Go Back
+                            </Button>
+                        </Link>
+                        <Button variant="outlined" color="primary" onClick={this.showForm} className={classes.button}>
+                            Save
+                        </Button>
                     </div>
                 </AppBar>
+                {this.state.formShowing && <PaletteInfoForm palettes={palettes} onSubmit={onSubmit} hideForm={this.hideForm} />}
             </div>
         )
     }

@@ -36,6 +36,7 @@ const styles = theme => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    marginRight: '0'
   },
   content: {
     flexGrow: 1,
@@ -59,8 +60,7 @@ const styles = theme => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignSelf: 'center',
-      height: '100%'
+      alignItems: 'center'
   },
   btns: {
     display: 'flex',
@@ -105,12 +105,9 @@ class NewPalette extends React.Component {
     addNewColor(newColor){
         this.setState({ colors: [...this.state.colors, newColor], newColorName: "" })
     }
-    savePalette(newPaletteName){
-        const newPalette = {
-            paletteName: newPaletteName,
-            id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-            colors: this.state.colors
-        }
+    savePalette(newPalette){
+        newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
+        newPalette.colors = this.state.colors;
         this.props.savePalette(newPalette)
         this.props.history.push("/")
     }
@@ -150,7 +147,7 @@ class NewPalette extends React.Component {
                 anchor="left"
                 open={open}
                 classes={{
-                paper: classes.drawerPaper,
+                    paper: classes.drawerPaper,
                 }}
             >
                 <div className={classes.drawerHeader}>

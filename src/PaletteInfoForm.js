@@ -6,16 +6,19 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import 'emoji-mart/css/emoji-mart.css';
+import { Picker } from 'emoji-mart';
 
 class PaletteInfoForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+            stage: "form",
             newPaletteName: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.savePalette = this.savePalette.bind(this);
+        this.showEmoji = this.showEmoji.bind(this);
     };
     componentDidMount() {
         ValidatorForm.addValidationRule('isPaletteNameUnique', value => 
@@ -34,44 +37,45 @@ class PaletteInfoForm extends Component {
     handleClose = () => {
       this.setState({open: false});
     };
-    savePalette() {
-        this.props.onSubmit(this.state.newPaletteName)
+    savePalette(emoji) {
+        this.props.onSubmit({paletteName: this.state.newPaletteName, emoji: emoji.native})
+    }
+    showEmoji() {
+        this.setState({stage: 'emoji'})
     }
     render() {
-        const {newPaletteName} = this.state;
-        const {onSubmit} = this.props;
+        const { newPaletteName } = this.state;
+        const { hideForm } = this.props;
         return (
             <div>
-                <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-                    Open form dialog
-                </Button>
-                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-                    <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We will send updates
-                        occasionally.
-                    </DialogContentText>
-                         <ValidatorForm onSubmit={this.savePalette}>
+                <Dialog open={this.state.stage === 'emoji'} onClose={hideForm}>
+                    <DialogTitle id="form-dialog-title">New Palette Emoji</DialogTitle>
+                    <Picker onSelect={this.savePalette} title='Pick an Emoji'/>
+                </Dialog>
+                <Dialog open={this.state.stage === 'form'} onClose={this.handleClose} aria-labelledby="form-dialog-title" onClose={hideForm}>ç
+                    <DialogTitle id="form-dialog-title">New Palette Name</DialogTitle>
+                    <ValidatorForm onSubmit={this.showEmoji}>
+                        <DialogContent>
+                        <DialogContentText>
+                            Enter a unique name for your unique palette.
+                        </DialogContentText>
                             <TextValidator 
                                 value={newPaletteName} 
-                                label="Palette Name" 
                                 onChange={this.handleChange} 
+                                fullWidth
+                                margin='normal'
                                 name="newPaletteName"
                                 validators={["required", "isPaletteNameUnique"]}
                                 errorMessages={["enter palette name", "this name is taken"]}
                             />
-                            <Button variant="contained" color="secondary" type="submit">Save Palette</Button>
+                        </DialogContent>
+                        <DialogActions>
+                        <Button onClick={hideForm} color="secondary">
+                            Cancel
+                        </Button>
+                        <Button variant="contained" color="primary" type="submit">Save Palette</Button>
+                        </DialogActions>
                         </ValidatorForm>
-                    </DialogContent>
-                    <DialogActions>
-                    <Button onClick={this.handleClose} color="primary">
-                        Cancel
-                    </Button>
-                    <Button onClick={this.handleClose} color="primary">
-                        Subscribe
-                    </Button>
-                    </DialogActions>
                 </Dialog>
             </div>
         )
