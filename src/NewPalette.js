@@ -75,7 +75,7 @@ class NewPalette extends React.Component {
         const paletteFull = colors.length >= maxColors
         return (
             <div className={classes.root}>
-            <NewPaletteNav handleDrawerOpen={this.handleDrawerOpen} classes={classes} open={open} palettes={palettes} onSubmit={this.savePalette} />
+            <NewPaletteNav handleDrawerOpen={this.handleDrawerOpen} open={open} palettes={palettes} onSubmit={this.savePalette} />
             <Drawer
                 className={classes.drawer}
                 variant="persistent"

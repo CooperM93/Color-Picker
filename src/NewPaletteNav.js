@@ -62,7 +62,7 @@ class NewPaletteNav extends React.Component {
                             <ChevronRightIcon />
                         </IconButton>
                         <Typography variant="h6" noWrap>
-                            Persistent drawer
+                            Custom Palette
                         </Typography>
                     </Toolbar>
                     <div className={classes.navBtns}>
