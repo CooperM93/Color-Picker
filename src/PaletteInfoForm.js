@@ -52,7 +52,7 @@ class PaletteInfoForm extends Component {
                     <DialogTitle id="form-dialog-title">New Palette Emoji</DialogTitle>
                     <Picker onSelect={this.savePalette} title='Pick an Emoji'/>
                 </Dialog>
-                <Dialog open={this.state.stage === 'form'} onClose={this.handleClose} aria-labelledby="form-dialog-title" onClose={hideForm}>ç
+                <Dialog open={this.state.stage === 'form'} aria-labelledby="form-dialog-title" onClose={hideForm}>
                     <DialogTitle id="form-dialog-title">New Palette Name</DialogTitle>
                     <ValidatorForm onSubmit={this.showEmoji}>
                         <DialogContent>

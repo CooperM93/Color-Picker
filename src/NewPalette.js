@@ -101,7 +101,6 @@ class NewPalette extends React.Component {
                             variant="contained" 
                             className={classes.button}
                             onClick={this.addRandomColor}
-                            className={classes.button}
                         >
                             Random Color
                         </Button>
