@@ -47,7 +47,7 @@ class SingleColorPalette extends Component {
                 />
                 <div className={classes.PaletteColors}>
                     {colors}
-                    <div className={`${classes.backBox} ${classes.SingleColorBox}`}> 
+                    <div className={`${classes.backBox}`}> 
                         <Link to={`/palette/${id}`}><button className={classes.backButton}>Go Back</button></Link>
                     </div>
                 </div>

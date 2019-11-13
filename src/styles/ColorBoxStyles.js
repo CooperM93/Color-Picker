@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import sizes from "./sizes";
 
 export default {
     ColorBox: {
@@ -13,12 +14,19 @@ export default {
             opacity: "1",
             transition: "0.5s"
         },
-        "@media (max-width: 900px": {
-            width: '50%'
+        [sizes.down("lg")]: {
+            width: "25%",
+            height: "20%"
         },
-        "@media (max-width: 500px)": {
-            width: '100%'
-        }
+        [sizes.down("md")]: {
+            width: "50%",
+            height: "10%"
+        },
+        [sizes.down("xs")]: {
+            width: "100%",
+            height: "5%"
+        },
+
     },
     lightText: {
         color: props => 
@@ -121,7 +129,10 @@ export default {
             width: "100%",
             textAlign: "center",
             padding: "1rem",
-            textTransform: "uppercase"
+            textTransform: "uppercase",
+            [sizes.down("xs")]: {
+                fontSize: "4rem"
+            }
         },
         "& p": {
             fontSize: "2rem",

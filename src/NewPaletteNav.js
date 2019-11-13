@@ -61,7 +61,7 @@ class NewPaletteNav extends React.Component {
                         >
                             <ChevronRightIcon />
                         </IconButton>
-                        <Typography variant="h6" noWrap>
+                        <Typography variant="h6" className={classes.title} noWrap>
                             Custom Palette
                         </Typography>
                     </Toolbar>

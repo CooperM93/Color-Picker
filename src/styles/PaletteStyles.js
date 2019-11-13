@@ -1,3 +1,5 @@
+import sizes from './sizes';
+
 export default {
     Palette: {
         height: "100vh",
@@ -24,7 +26,30 @@ export default {
         margin: "0 1rem"
     },
     backBox: {
-        backgroundColor: "rgb(40, 40, 40)"
+        backgroundColor: "rgb(100, 100, 100)",
+        width: "20%",
+        height: "50%",
+        margin: "0 auto",
+        display: "inline-block",
+        position: "relative",
+        cursor: "pointer",
+        marginBottom: "-3.5px",
+        "&:hover button": {
+            opacity: "1",
+            transition: "0.5s"
+        },
+        [sizes.down("lg")]: {
+            width: "25%",
+            height: "20%"
+        },
+        [sizes.down("md")]: {
+            width: "50%",
+            height: "10%"
+        },
+        [sizes.down("xs")]: {
+            width: "100%",
+            height: "10%"
+        },
     },
     backButton: {
         width: "100px",

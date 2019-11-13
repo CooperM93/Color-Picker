@@ -1,4 +1,5 @@
 import chroma from 'chroma-js';
+import sizes from './sizes';
 
 export default {
     SingleColorBox: {
@@ -12,7 +13,19 @@ export default {
         "&:hover button": {
             opacity: "1",
             transition: "0.5s"
-        }
+        },
+        [sizes.down("lg")]: {
+            width: "25%",
+            height: "20%"
+        },
+        [sizes.down("md")]: {
+            width: "50%",
+            height: "10%"
+        },
+        [sizes.down("xs")]: {
+            width: "100%",
+            height: "10%"
+        },
     },
     lightText: {
         color: props => 
@@ -134,7 +147,10 @@ export default {
             width: "100%",
             textAlign: "center",
             padding: "1rem",
-            textTransform: "uppercase"
+            textTransform: "uppercase",
+            [sizes.down("xs")]: {
+                fontSize: "4rem"
+            }
         },
         "& p": {
             fontSize: "2rem",
