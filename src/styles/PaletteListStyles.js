@@ -48,28 +48,36 @@ export default {
         justifyContent: "space-between",
         alignItems: "center",
         color: "white",
-        "& h1": {
-            color: "white"
-        },
+        margin: '10px 0',
         "& a": {
             textDecoration: "none",
-            color: "white"
+            color: "white",
+            border: "white 4",
+            marginRight: "5px"
         }
+    },
+    title: {
+        marginTop: "10px",
+        color: "white"
     },
     palettes: {
         boxSizing: "border-box",
         width: "100%",
         display: "grid",
-        gridTemplateColumns: "repeat(4, 20%)",
+        gridTemplateColumns: "repeat(4, 22.5%)",
         gridGap: "2.5rem",
         [sizes.down("lg")]: {
             gridTemplateColumns: "repeat(3, 30%)",
         },
         [sizes.down("md")]: {
-            gridTemplateColumns: "repeat(2, 40%)",
+            gridTemplateColumns: "repeat(2, 45%)",
         },
         [sizes.down("xs")]: {
             gridTemplateColumns: "repeat(1, 90%)",
         }
+    },
+    button: {
+        color: 'white',
+        borderColor: 'white'
     }
 }

@@ -38,7 +38,8 @@ class PaletteInfoForm extends Component {
       this.setState({open: false});
     };
     savePalette(emoji) {
-        this.props.onSubmit({paletteName: this.state.newPaletteName, emoji: emoji.native})
+        this.props.onSubmit({paletteName: this.state.newPaletteName, emoji: emoji.native});
+        this.setState({ stage: "" });
     }
     showEmoji() {
         this.setState({stage: 'emoji'})

@@ -31,6 +31,9 @@ class NavBar extends Component {
                 <div className={classes.logo}>
                     <Link to='/'>reactcolorpicker</Link>
                 </div>
+                <div className={classes.logosm}>
+                    <Link to='/'>rcp</Link>
+                </div>
                 {showSlider && (
                     <div>
                         <span>Level: {level}</span>

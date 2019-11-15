@@ -21,7 +21,24 @@ export default {
             color: "black"
         },
         [sizes.down("xs")]: {
-            display: 'none'
+            display: "none"
+        }
+    },
+    logosm: {
+        marginRight: "15px",
+        padding: "0 13px",
+        fontSize: "20px",
+        backgroundColor: "#eceff1",
+        fontFamily: "Roboto",
+        height: "100%",
+        display: "none",
+        alignItems: "center",
+        "& a": {
+            textDecoration: "none",
+            color: "black"
+        },
+        [sizes.down("xs")]: {
+            display: "flex"
         }
     },
     slider: {

@@ -9,6 +9,7 @@ const styles = {
         position: "relative",
         cursor: "pointer",
         marginBottom: "-5px",
+        paddingBottom: "2px",
         "&:hover svg": {
             color: "white",
             transform: "scale(1.2)"
@@ -41,6 +42,7 @@ const styles = {
         color: "rgba(0, 0, 0, 0.5)"
     },
     deleteIcon: {
+        marginRight: "15px",
         transform: "scale(0.8)",
         transition: "all 0.3s ease-in-out"
     }

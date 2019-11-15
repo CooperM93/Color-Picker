@@ -36,7 +36,6 @@ export default {
         height: "25%",
         width: "20%",
         display: "inline-block",
-        margin: "0 auto",
         position: "relative",
         marginBottom: "-3px"
     },

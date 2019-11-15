@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import CssBaseline from '@material-ui/core/CssBaseline';
+//import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
@@ -43,7 +43,7 @@ class NewPaletteNav extends React.Component {
         const { classes, open, palettes, onSubmit } = this.props;
         return (
             <div className={classes.root}>
-                <CssBaseline />
+                
                 <AppBar
                     position="fixed"
                     color="default"
