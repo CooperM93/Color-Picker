@@ -50,7 +50,7 @@ class App extends React.Component {
                   <Page>
                     <NewPalette 
                       savePalette={this.savePalette} 
-                      palettes={this.state.palettes} 
+                      palettes={seedColors} 
                       {...routeProps} 
                     />
                   </Page>
@@ -95,6 +95,17 @@ class App extends React.Component {
                     />
                   </Page>
                 )} 
+              />
+              <Route  
+                render={(routeProps) => (
+                  <Page>
+                    <PaletteList 
+                      palettes={this.state.palettes} 
+                      deletePalette={this.deletePalette} 
+                      {...routeProps} 
+                    />
+                  </Page>
+                )}
               />
             </Switch>
           </CSSTransition>
