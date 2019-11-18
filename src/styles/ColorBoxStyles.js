@@ -35,7 +35,6 @@ export default {
     darkText: {
         color: props => 
             chroma(props.background).luminance() <= 0.09 ? "white" : "black"
-    
     },
     seeMore: {
         color: props => 

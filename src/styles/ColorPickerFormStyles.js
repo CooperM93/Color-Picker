@@ -1,3 +1,4 @@
+import chroma from 'chroma-js';
 
 const styles = {
     picker: {
@@ -8,7 +9,7 @@ const styles = {
         width: '100%',
         padding: '.75rem',
         fontSize: '1.5rem',
-        marginTop: '1rem'
+        marginTop: '1rem',
     },
     colorNameInput: {
         width: '100%',

@@ -1,4 +1,5 @@
 import sizes from './sizes';
+import chroma from 'chroma-js';
 
 const styles = {
     root: {
@@ -39,13 +40,16 @@ const styles = {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        color: "rgba(0, 0, 0, 0.5)"
+        color: props => 
+            chroma(props.color).luminance() <= 0.09 
+            ? "rgba(255,255,255,0.8)" 
+            : "rgba(0,0,0,0.6)"
     },
     deleteIcon: {
         marginRight: "15px",
         transform: "scale(0.8)",
         transition: "all 0.3s ease-in-out"
-    }
+    },
 };
 
 export default styles;
