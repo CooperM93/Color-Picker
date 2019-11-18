@@ -4,10 +4,11 @@ import PaletteList from "./PaletteList";
 import seedColors from "./seedColors";
 import SingleColorPalette from './SingleColorPalette'
 import NewPalette from './NewPalette';
+import Page from './Page';
 import {generatePalette} from "./colorHelper";
 import { Route, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Page from './Page';
+
 
 
 class App extends React.Component {

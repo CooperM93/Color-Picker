@@ -33,7 +33,7 @@ export default {
         display: "inline-block",
         position: "relative",
         cursor: "pointer",
-        marginBottom: "-3.5px",
+        marginBottom: "-4px",
         "&:hover button": {
             opacity: "1",
             transition: "0.5s"

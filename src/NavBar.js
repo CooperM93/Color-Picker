@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import Slider from "rc-slider";
 import 'rc-slider/assets/index.css';
 import styles from './styles/NavBarStyles';
+
 class NavBar extends Component {
     constructor(props) {
         super(props);

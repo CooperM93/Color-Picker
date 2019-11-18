@@ -37,7 +37,7 @@ export default {
         width: "20%",
         display: "inline-block",
         position: "relative",
-        marginBottom: "-3px"
+        marginBottom: "-4px"
     },
     deleteIcon: {
         color: 'white',

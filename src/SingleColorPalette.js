@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { withStyles } from "@material-ui/styles";
 import SingleColorBox from './SingleColorBox';
 import NavBar from './NavBar';
-import { Link } from 'react-router-dom';
 import styles from './styles/PaletteStyles';
-import { withStyles } from "@material-ui/styles";
+
 class SingleColorPalette extends Component {
     constructor(props){
         super(props)
@@ -47,7 +48,7 @@ class SingleColorPalette extends Component {
                 />
                 <div className={classes.PaletteColors}>
                     {colors}
-                    <div className={`${classes.backBox}`}> 
+                    <div className={classes.backBox}> 
                         <Link to={`/palette/${id}`}><button className={classes.backButton}>Go Back</button></Link>
                     </div>
                 </div>

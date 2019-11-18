@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {CopyToClipboard} from "react-copy-to-clipboard";
-import styles from './styles/SingleColorBoxStyles';
 import { withStyles } from '@material-ui/styles';
+import clsx from 'clsx';
+import styles from './styles/SingleColorBoxStyles';
+
 class SingleColorBox extends Component {
     constructor(props){
         super(props);
@@ -21,9 +23,15 @@ class SingleColorBox extends Component {
                 <div style={{background}} className={classes.SingleColorBox}>
                     <div 
                         style={{background}} 
-                        className={`${classes.copyOverlay} ${copy && classes.showOverlay}`}
+                        className={clsx(classes.copyOverlay, {
+                            [classes.showOverlay]: copy,
+                        })}
                     />
-                    <div className={`${classes.copyMessage} ${copy && classes.copyShow} ${classes.lightText}`}>
+                    <div
+                        className={clsx(classes.copyMessage, classes.lightText, {
+                            [classes.copyShow]: copy,
+                        })}
+                    >
                         <h1>Copied</h1>
                         <p>{background}</p>
                     </div>
