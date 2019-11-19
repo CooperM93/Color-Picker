@@ -18,6 +18,8 @@ class SingleColorBox extends Component {
     render() {
         const {name, background, classes} = this.props;
         const {copy} = this.state;
+        const shadeNum = name.slice(-4);
+        const shadeName = name.slice(0, -3);
         return (
             <CopyToClipboard text={background} onCopy={this.changeCopyState}>
                 <div style={{background}} className={classes.SingleColorBox}>
@@ -37,7 +39,8 @@ class SingleColorBox extends Component {
                     </div>
                     <div className="copy-container">
                         <div className={classes.boxContent}>
-                            <span className={classes.darkText}>{name}</span>
+                            <span className={classes.colorName}>{shadeName}</span>
+                            <span className={classes.colorNum}>{shadeNum}</span>
                         </div>
                         <button className={`${classes.copyButton} ${classes.lightText}`}>Copy</button>
                     </div>

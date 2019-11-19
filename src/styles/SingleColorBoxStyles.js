@@ -34,7 +34,24 @@ export default {
     darkText: {
         color: props => 
             chroma(props.background).luminance() <= 0.09 ? "white" : "black"
-    
+    },
+    colorName: {
+        width: '75%',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',       
+        position: 'absolute',
+        bottom: '8px',
+        whiteSpace: 'nowrap',
+        color: props => 
+            chroma(props.background).luminance() <= 0.09 ? "white" : "black"
+    },
+    colorNum: {
+        position: 'absolute',
+        bottom: '8px',
+        right: '25px',
+        whiteSpace: 'nowrap',
+        color: props => 
+            chroma(props.background).luminance() <= 0.09 ? "white" : "black"
     },
     seeMore: {
         color: props => 
@@ -100,12 +117,14 @@ export default {
         position: "absolute",
         padding: "10px",
         width: "100%",
+        height: '100%',
         left: "0px",
         bottom: "0px",
         color: "black",
         letterSpacing: "1px",
         textTransform: "uppercase",
-        fontSize: "12px"
+        fontSize: "12px",
+        display: 'inline'
     },
     copyOverlay: {
         opacity: "0",

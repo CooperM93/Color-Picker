@@ -45,6 +45,11 @@ const styles = {
             ? "rgba(255,255,255,0.8)" 
             : "rgba(0,0,0,0.6)"
     },
+    colorName: {
+        width: '80%',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis'
+    },
     deleteIcon: {
         marginRight: "15px",
         transform: "scale(0.8)",

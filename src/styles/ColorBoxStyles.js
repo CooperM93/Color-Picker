@@ -36,6 +36,24 @@ export default {
         color: props => 
             chroma(props.background).luminance() <= 0.09 ? "white" : "black"
     },
+    colorName: {
+        width: '60%',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        position: 'absolute',
+        bottom: '8px',
+        color: props => 
+            chroma(props.background).luminance() <= 0.09 ? "white" : "black"
+    },
+    colorNum: {
+        position: 'absolute',
+        bottom: '8px',
+        right: '85px',
+        whiteSpace: 'nowrap',
+        color: props => 
+            chroma(props.background).luminance() <= 0.09 ? "white" : "black"
+    },
     seeMore: {
         color: props => 
             chroma(props.background).luminance() >= 0.65 ? "black" : "white",
@@ -49,6 +67,7 @@ export default {
         textAlign: "center",
         lineHeight: "30px",
         textTransform: "uppercase",
+        zIndex: 4,
         "&:hover": {
             background: "rgba(255, 255, 255, 0.5)",
             transition: "0.5s"
@@ -81,12 +100,13 @@ export default {
         position: "absolute",
         padding: "10px",
         width: "100%",
+        height: '100%',
         left: "0px",
         bottom: "0px",
         color: "black",
         letterSpacing: "1px",
         textTransform: "uppercase",
-        fontSize: "12px"
+        fontSize: "12px",
     },
     copyOverlay: {
         opacity: "0",

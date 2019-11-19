@@ -1,4 +1,3 @@
-import chroma from 'chroma-js';
 
 const styles = {
     picker: {

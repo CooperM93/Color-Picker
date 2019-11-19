@@ -19,6 +19,8 @@ export class ColorBox extends Component {
     render() {
         const {name, background, moreUrl, classes} = this.props;
         const {copy} = this.state;
+        const shadeNum = name.slice(-4);
+        const shadeName = name.slice(0, -3);
         return (
             <CopyToClipboard text={background} onCopy={this.changeCopyState}>
                 <div style={{background}} className={classes.ColorBox}>
@@ -38,7 +40,8 @@ export class ColorBox extends Component {
                     </div>
                     <div>
                         <div className={classes.boxContent}>
-                            <span className={classes.darkText}>{name}</span>
+                            <span className={classes.colorName}>{shadeName}</span>
+                            <span className={classes.colorNum}>{shadeNum}</span>
                         </div>
                         <button className={classes.copyButton}>Copy</button>
                     </div>

@@ -65,10 +65,10 @@ class NewPalette extends React.Component {
     }
     addRandomColor() {
         //combines all colors form all palette
-        const allColors = this.props.palettes.map(p => p.colors).flat()
+        const allColors = this.props.palettes.map(p => p.colors).flat();
+        let isDuplicateColor = true;
         let rand;
         let randomColor;
-        let isDuplicateColor = true;
         while(isDuplicateColor) {
             rand = Math.floor(Math.random() * allColors.length);
             randomColor = allColors[rand];
